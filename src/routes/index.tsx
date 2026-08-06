@@ -102,7 +102,7 @@ function Invitation() {
       <Reveal className="mt-10">
         <div className="rounded-[2rem] bg-card p-2 shadow-glow">
           <img
-            src={couple}
+            src={coupleAsset.url}
             alt="Retrato de Isabela e Rafael"
             width={912}
             height={1104}
