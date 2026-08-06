@@ -19,6 +19,11 @@
  */
 
 @theme inline {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+  --color-blue-deep: var(--blue-deep);
+  --color-blue-soft: var(--blue-soft);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +31,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -62,26 +68,32 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 1rem;
+  --background: oklch(0.99 0.004 250);
+  --foreground: oklch(0.24 0.045 265);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.24 0.045 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.24 0.045 265);
+  --primary: oklch(0.42 0.16 264);
+  --primary-foreground: oklch(0.99 0.005 250);
+  --secondary: oklch(0.955 0.018 255);
+  --secondary-foreground: oklch(0.35 0.12 264);
+  --muted: oklch(0.965 0.01 255);
+  --muted-foreground: oklch(0.53 0.04 258);
+  --accent: oklch(0.94 0.03 255);
+  --accent-foreground: oklch(0.35 0.12 264);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.915 0.018 255);
+  --input: oklch(0.915 0.018 255);
+  --ring: oklch(0.55 0.13 264);
+  --blue-deep: oklch(0.32 0.14 265);
+  --blue-soft: oklch(0.62 0.13 258);
+  --gradient-royal: linear-gradient(135deg, oklch(0.32 0.14 265), oklch(0.55 0.15 260) 55%, oklch(0.68 0.11 250));
+  --shadow-soft: 0 18px 50px -24px oklch(0.32 0.14 265 / 0.35);
+  --shadow-glow: 0 0 0 1px oklch(0.62 0.13 258 / 0.25), 0 24px 60px -28px oklch(0.32 0.14 265 / 0.5);
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +152,73 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+@utility gradient-royal {
+  background-image: var(--gradient-royal);
+}
+
+@utility text-royal {
+  background-image: var(--gradient-royal);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.18); }
+  50% { transform: scale(0.96); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@utility animate-heart {
+  animation: heart-beat 2.2s ease-in-out infinite;
+}
+
+@utility animate-float {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-image: radial-gradient(
+        ellipse at top,
+        oklch(0.62 0.13 258 / 0.08),
+        transparent 55%
+      ),
+      radial-gradient(ellipse at bottom, oklch(0.62 0.13 258 / 0.06), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    letter-spacing: 0.01em;
   }
 }
