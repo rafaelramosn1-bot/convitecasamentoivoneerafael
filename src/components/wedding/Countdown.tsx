@@ -12,10 +12,13 @@ function diff() {
   };
 }
 
+const EMPTY = { dias: 0, horas: 0, min: 0, seg: 0 };
+
 export function Countdown() {
-  const [time, setTime] = useState(() => diff());
+  const [time, setTime] = useState(EMPTY);
 
   useEffect(() => {
+    setTime(diff());
     const id = setInterval(() => setTime(diff()), 1000);
     return () => clearInterval(id);
   }, []);

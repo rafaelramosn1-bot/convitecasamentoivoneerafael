@@ -7,7 +7,7 @@ import { RsvpDialog } from "@/components/wedding/RsvpDialog";
 import { GiftsDialog } from "@/components/wedding/GiftsDialog";
 import { MusicToggle } from "@/components/wedding/MusicToggle";
 import monogram from "@/assets/monogram.png";
-import couple from "@/assets/couple.jpg";
+import coupleAsset from "@/assets/couple.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -102,7 +102,7 @@ function Invitation() {
       <Reveal className="mt-10">
         <div className="rounded-[2rem] bg-card p-2 shadow-glow">
           <img
-            src={couple}
+            src={coupleAsset.url}
             alt="Retrato de Isabela e Rafael"
             width={912}
             height={1104}
