@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { toast } from "sonner";
-import { Copy, Gift, ExternalLink } from "lucide-react";
+import { Copy } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-const PIX_KEY = "casamento.isabela.rafael@email.com";
+const PIX_KEY = "casamento.ivone.rafael@email.com";
 
 export function GiftsDialog({ trigger }: { trigger: ReactNode }) {
   const copy = async () => {
@@ -25,10 +25,10 @@ export function GiftsDialog({ trigger }: { trigger: ReactNode }) {
       <DialogContent className="rounded-3xl sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-serif text-2xl text-royal">
-            Lista de Presentes
+            Ajude com Pix
           </DialogTitle>
           <DialogDescription>
-            Sua presença já é o maior presente. Se desejar nos abençoar com algo mais:
+            Sua presença já é o maior presente. Se desejar nos abençoar com algo mais, use nossa chave PIX:
           </DialogDescription>
         </DialogHeader>
 
@@ -43,19 +43,6 @@ export function GiftsDialog({ trigger }: { trigger: ReactNode }) {
               Copiar chave PIX
             </Button>
           </div>
-
-          <a
-            href="https://www.amazon.com.br/wedding/registry"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-between rounded-2xl border border-border bg-card p-4 transition-colors hover:bg-accent"
-          >
-            <span className="flex items-center gap-3 text-sm font-medium">
-              <Gift className="h-4 w-4 text-primary" />
-              Lista externa de presentes
-            </span>
-            <ExternalLink className="h-4 w-4 text-muted-foreground" />
-          </a>
         </div>
       </DialogContent>
     </Dialog>

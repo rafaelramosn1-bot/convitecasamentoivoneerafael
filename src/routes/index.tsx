@@ -3,7 +3,6 @@ import { CalendarPlus, MapPin, Gift, Heart, Clock, Church } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/wedding/Reveal";
 import { Countdown } from "@/components/wedding/Countdown";
-import { RsvpDialog } from "@/components/wedding/RsvpDialog";
 import { GiftsDialog } from "@/components/wedding/GiftsDialog";
 import { MusicToggle } from "@/components/wedding/MusicToggle";
 import monogram from "@/assets/monogram.png";
@@ -12,17 +11,17 @@ import coupleAsset from "@/assets/couple.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Isabela & Rafael — 26.09.2026 | Convite de Casamento" },
+      { title: "Ivone & Rafael — 26.09.2026 | Convite de Casamento" },
       {
         name: "description",
         content:
-          "Com a bênção de Deus e de nossos pais, convidamos você para celebrar o nosso casamento em 26 de setembro de 2026. Confirme sua presença.",
+          "Com a bênção de Deus e de nossos pais, convidamos você para celebrar o nosso casamento em 26 de setembro de 2026.",
       },
-      { property: "og:title", content: "Isabela & Rafael — 26.09.2026" },
+      { property: "og:title", content: "Ivone & Rafael — 26.09.2026" },
       {
         property: "og:description",
         content:
-          "Convite digital: confirme sua presença, veja a localização e adicione a data ao seu calendário.",
+          "Convite digital: veja a localização e adicione a data ao seu calendário.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,21 +33,21 @@ export const Route = createFileRoute("/")({
 const MAPS_URL = "https://maps.app.goo.gl/8fGcMvLjXubdZ1Dh8";
 const GCAL_URL =
   "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
-  encodeURIComponent("Casamento de Isabela & Rafael") +
-  "&dates=20260926T190000Z/20260927T020000Z&details=" +
+  encodeURIComponent("Casamento de Ivone & Rafael") +
+  "&dates=20260926T140000Z/20260926T190000Z&details=" +
   encodeURIComponent("Celebre conosco este dia especial. Local: " + MAPS_URL);
 
 function downloadIcs() {
   const ics = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Isabela e Rafael//Casamento//PT",
+    "PRODID:-//Ivone e Rafael//Casamento//PT",
     "BEGIN:VEVENT",
-    "UID:casamento-isabela-rafael-2026@convite",
+    "UID:casamento-ivone-rafael-2026@convite",
     "DTSTAMP:20260101T000000Z",
-    "DTSTART:20260926T190000Z",
-    "DTEND:20260927T020000Z",
-    "SUMMARY:Casamento de Isabela & Rafael",
+    "DTSTART:20260926T140000Z",
+    "DTEND:20260926T190000Z",
+    "SUMMARY:Casamento de Ivone & Rafael",
     `DESCRIPTION:Celebre conosco este dia especial. Local: ${MAPS_URL}`,
     "END:VEVENT",
     "END:VCALENDAR",
@@ -56,7 +55,7 @@ function downloadIcs() {
   const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
   const a = document.createElement("a");
   a.href = url;
-  a.download = "casamento-isabela-rafael.ics";
+  a.download = "casamento-ivone-rafael.ics";
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -80,13 +79,13 @@ function Invitation() {
       <header className="text-center">
         <img
           src={monogram}
-          alt="Monograma de Isabela e Rafael"
+          alt="Monograma de Ivone e Rafael"
           width={816}
           height={816}
           className="mx-auto h-44 w-44 animate-float object-contain"
         />
         <h1 className="font-serif text-4xl font-light tracking-wide text-royal">
-          Isabela <span className="font-script">&</span> Rafael
+          Ivone <span className="font-script">&</span> Rafael
         </h1>
         <p className="mt-4 text-[0.7rem] tracking-[0.42em] text-muted-foreground uppercase">
           26 / 09 / 2026
@@ -103,7 +102,7 @@ function Invitation() {
         <div className="rounded-[2rem] bg-card p-2 shadow-glow">
           <img
             src={coupleAsset.url}
-            alt="Retrato de Isabela e Rafael"
+            alt="Retrato de Ivone e Rafael"
             width={912}
             height={1104}
             loading="lazy"
@@ -142,7 +141,7 @@ function Invitation() {
               <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div className="min-w-0">
                 <p className="font-serif text-lg">Sábado, 26 de Setembro de 2026</p>
-                <p className="text-sm text-muted-foreground">Às 16h — chegue com 20 min de antecedência.</p>
+                <p className="text-sm text-muted-foreground">Às 11h — chegue com 20 min de antecedência.</p>
               </div>
             </li>
           </ul>
@@ -158,20 +157,11 @@ function Invitation() {
           </a>
         </Button>
 
-        <RsvpDialog
-          trigger={
-            <Button variant="elegant" size="xl" className="w-full">
-              <Heart className="h-4 w-4" />
-              Confirmar Presença (RSVP)
-            </Button>
-          }
-        />
-
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <Button variant="elegant" size="xl" className="w-full" asChild>
             <a href={GCAL_URL} target="_blank" rel="noopener noreferrer">
               <CalendarPlus className="h-4 w-4" />
-              Google Agenda
+              Agende para lembrar
             </a>
           </Button>
           <Button variant="elegant" size="xl" className="w-full" onClick={downloadIcs}>
@@ -184,7 +174,7 @@ function Invitation() {
           trigger={
             <Button variant="elegant" size="xl" className="w-full">
               <Gift className="h-4 w-4" />
-              Lista de Presentes
+              Ajude com Pix
             </Button>
           }
         />
@@ -194,7 +184,7 @@ function Invitation() {
         <Divider />
         <p className="font-script text-2xl text-royal">Esperamos por você</p>
         <p className="mt-2 text-[0.65rem] tracking-[0.3em] text-muted-foreground uppercase">
-          Isabela &amp; Rafael · 26.09.2026
+          Ivone &amp; Rafael · 26.09.2026
         </p>
       </Reveal>
     </main>
