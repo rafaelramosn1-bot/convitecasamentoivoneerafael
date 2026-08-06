@@ -80,10 +80,13 @@ export function RsvpDialog({ trigger }: { trigger: ReactNode }) {
               onValueChange={setAttending}
               className="grid grid-cols-2 gap-3"
             >
-              {[
-                ["sim", "Sim, estarei lá"],
-                ["nao", "Não poderei ir"],
-              ].map(([value, label]) => (
+              {(
+                [
+                  ["sim", "Sim, estarei lá"],
+                  ["nao", "Não poderei ir"],
+                ] as const
+              ).map(([value, label]) => (
+
                 <Label
                   key={value}
                   htmlFor={`att-${value}`}
