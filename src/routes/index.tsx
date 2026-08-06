@@ -7,7 +7,7 @@ import { RsvpDialog } from "@/components/wedding/RsvpDialog";
 import { GiftsDialog } from "@/components/wedding/GiftsDialog";
 import { MusicToggle } from "@/components/wedding/MusicToggle";
 import monogram from "@/assets/monogram.png";
-import couple from "@/assets/couple.jpg";
+import coupleAsset from "@/assets/couple.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
