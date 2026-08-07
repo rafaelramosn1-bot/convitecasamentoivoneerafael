@@ -73,8 +73,6 @@ function Divider() {
 function Invitation() {
   return (
     <main className="mx-auto min-h-screen w-full max-w-lg px-5 pt-10 pb-24">
-      <MusicToggle />
-
       {/* Hero */}
       <header className="text-center">
         <img
@@ -164,10 +162,14 @@ function Invitation() {
               Agende para lembrar
             </a>
           </Button>
-          <Button variant="elegant" size="xl" className="w-full" onClick={downloadIcs}>
-            <CalendarPlus className="h-4 w-4" />
-            Apple / iCal
-          </Button>
+          <RsvpDialog
+            trigger={
+              <Button variant="elegant" size="xl" className="w-full">
+                <Users className="h-4 w-4" />
+                Lista de Presença
+              </Button>
+            }
+          />
         </div>
 
         <GiftsDialog
