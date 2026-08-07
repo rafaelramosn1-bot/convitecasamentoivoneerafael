@@ -25,7 +25,7 @@ export function GiftsDialog({ trigger }: { trigger: ReactNode }) {
       <DialogContent className="rounded-3xl sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-serif text-2xl text-royal">
-            Ajude com Pix
+            Presente Pix
           </DialogTitle>
           <DialogDescription>
             Sua presença já é o maior presente. Se desejar nos abençoar com algo mais, use nossa chave PIX:
