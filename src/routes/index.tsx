@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarPlus, MapPin, Gift, Heart, Clock, Church } from "lucide-react";
+import { CalendarPlus, MapPin, Gift, Heart, Clock, Church, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/wedding/Reveal";
 import { Countdown } from "@/components/wedding/Countdown";
 import { GiftsDialog } from "@/components/wedding/GiftsDialog";
-import { MusicToggle } from "@/components/wedding/MusicToggle";
+import { RsvpDialog } from "@/components/wedding/RsvpDialog";
 import monogram from "@/assets/monogram.png";
 import coupleAsset from "@/assets/couple.jpg.asset.json";
 

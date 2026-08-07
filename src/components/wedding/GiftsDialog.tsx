@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-const PIX_KEY = "casamento.ivone.rafael@email.com";
+const PIX_KEY = "11 99770-2786";
 
 export function GiftsDialog({ trigger }: { trigger: ReactNode }) {
   const copy = async () => {
