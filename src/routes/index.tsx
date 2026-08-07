@@ -6,7 +6,7 @@ import { Countdown } from "@/components/wedding/Countdown";
 import { GiftsDialog } from "@/components/wedding/GiftsDialog";
 import { RsvpDialog } from "@/components/wedding/RsvpDialog";
 import monogram from "@/assets/monogram.png";
-import coupleAsset from "@/assets/couple.jpg.asset.json";
+import coupleAsset from "@/assets/couple2.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -176,7 +176,7 @@ function Invitation() {
           trigger={
             <Button variant="elegant" size="xl" className="w-full">
               <Gift className="h-4 w-4" />
-              Ajude com Pix
+              Presente Pix
             </Button>
           }
         />
