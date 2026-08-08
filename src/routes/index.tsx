@@ -139,7 +139,8 @@ function Invitation() {
               <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div className="min-w-0">
                 <p className="font-serif text-lg">Sábado, 26 de Setembro de 2026</p>
-                <p className="text-sm text-muted-foreground">Às 11h — chegue com 20 min de antecedência.</p>
+                <p className="text-sm text-muted-foreground">Às 10h — chegue com 20 min de antecedência.</p>
+                <p className="text-sm text-muted-foreground">12h cerimônia religiosa</p>
               </div>
             </li>
           </ul>
@@ -162,14 +163,12 @@ function Invitation() {
               Agende para lembrar
             </a>
           </Button>
-          <RsvpDialog
-            trigger={
-              <Button variant="elegant" size="xl" className="w-full">
-                <Users className="h-4 w-4" />
-                Lista de Presença
-              </Button>
-            }
-          />
+          <Button variant="elegant" size="xl" className="w-full" asChild>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <Users className="h-4 w-4" />
+              Marque sua presença
+            </a>
+          </Button>
         </div>
 
         <GiftsDialog
