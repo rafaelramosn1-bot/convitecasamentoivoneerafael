@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/wedding/Reveal";
 import { Countdown } from "@/components/wedding/Countdown";
 import { GiftsDialog } from "@/components/wedding/GiftsDialog";
-import { RsvpDialog } from "@/components/wedding/RsvpDialog";
+
 import monogram from "@/assets/monogram.png";
 import coupleAsset from "@/assets/couple2.jpg.asset.json";
 
@@ -31,6 +31,9 @@ export const Route = createFileRoute("/")({
 });
 
 const MAPS_URL = "https://maps.app.goo.gl/8fGcMvLjXubdZ1Dh8";
+const WHATSAPP_URL =
+  "https://wa.me/5511997702786?text=" +
+  encodeURIComponent("Olá! Gostaria de confirmar minha presença no casamento de Ivone & Rafael.");
 const GCAL_URL =
   "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
   encodeURIComponent("Casamento de Ivone & Rafael") +
